@@ -21,5 +21,6 @@ h2 {
 
 body{
     background: url('bunga2.jpg');
+    background-position: center;
     color: white;
 }
