@@ -2,10 +2,10 @@
     font-size: 20px;
 }
 
-.link:hover{
-    color: red;
-}
-
 .link:link{
     color: blue;
+}
+
+.link:hover{
+    color: red;
 }
