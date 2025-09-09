@@ -18,3 +18,12 @@ body {
     box-sizing: border-box;
     display: flex;
 }
+
+.sidebar-satu{
+    order:-1;
+    flex:0 0 155px;
+}
+
+.sidebar-dua{
+    flex:0 0 150px;
+}
