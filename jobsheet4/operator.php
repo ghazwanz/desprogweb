@@ -47,4 +47,29 @@ echo "Operator Logika dari && (AND) $a && $b adalah <b>" . checkBoolean($hasilAn
 echo "Operator Logika dari || (OR) $a || $b adalah <b>" . checkBoolean($hasilOr) . "</b><br>";
 echo "Operator Logika dari !a (NOT) !$a adalah <b>" . checkBoolean($hasilNotA) . "</b><br>";
 echo "Operator Logika dari !b (NOT) !$b adalah <b>" . checkBoolean($hasilNotB) . "</b><br>";
+
+$a=10;
+$b=5;
+echo "<br>";
+echo "Nilai Awal a: $a dan Nilai Awal b: $b <br>";
+
+echo "Nilai variabel a saat ini: $a, Hasil operator penugasan += pada $a += $b adalah <b>";
+$a += $b;
+echo "$a</b><br>";
+
+echo "Nilai variabel a saat ini: $a, Hasil operator penugasan -= pada $a -= $b adalah <b>";
+$a -= $b;
+echo "$a</b><br>";
+
+echo "Nilai variabel a saat ini: $a, Hasil operator penugasan *= pada $a *= $b adalah <b>";
+$a *= $b;
+echo "$a</b><br>";
+
+echo "Nilai variabel a saat ini: $a, Hasil operator penugasan /= pada $a /= $b adalah <b>";
+$a /= $b;
+echo "$a</b><br>";
+
+echo "Nilai variabel a saat ini: $a, Hasil operator penugasan /= pada $a /= $b adalah <b>";
+$a %= $b;
+echo "$a</b><br>";
 ?>
