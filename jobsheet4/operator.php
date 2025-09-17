@@ -72,4 +72,14 @@ echo "$a</b><br>";
 echo "Nilai variabel a saat ini: $a, Hasil operator penugasan /= pada $a /= $b adalah <b>";
 $a %= $b;
 echo "$a</b><br>";
+
+$a = 10;
+$b = "10";
+
+$hasilIdentik = $a === $b;
+$hasilTidakIdentik = $a !== $b;
+
+echo "<br>";
+echo "Operator Identik === dari $a === '$b' adalah <b>". checkBoolean($hasilIdentik) ."</b><br>";
+echo "Operator Tidak Identik !== dari $a !== '$b' adalah <b>". checkBoolean($hasilTidakIdentik) ."</b><br>";
 ?>
