@@ -82,4 +82,15 @@ $hasilTidakIdentik = $a !== $b;
 echo "<br>";
 echo "Operator Identik === dari $a === '$b' adalah <b>". checkBoolean($hasilIdentik) ."</b><br>";
 echo "Operator Tidak Identik !== dari $a !== '$b' adalah <b>". checkBoolean($hasilTidakIdentik) ."</b><br>";
+
+$totalKursi = 45;
+$kursiTerpakai = 28;
+$kursiTersedia = $totalKursi - $kursiTerpakai;
+$persentaseKursiKosong = ($kursiTersedia / $totalKursi) * 100;
+
+echo "<br>";
+echo "Total Kursi pada sebuah restoran: $totalKursi kursi <br>";
+echo "Kursi yang terpakai pada suatu malam pada restoran: $kursiTerpakai kursi <br>";
+echo "Sisa Kursi yang masih tersedia pada restoran: $kursiTersedia kursi <br>";
+echo "Persentase kursi kosong pada restoran tersebut: $persentaseKursiKosong% <br>";
 ?>
