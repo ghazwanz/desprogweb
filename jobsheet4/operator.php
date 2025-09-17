@@ -33,4 +33,18 @@ echo "Perbandingan dari lebih kecil $a < $b adalah <b>" . checkBoolean($hasilLeb
 echo "Perbandingan dari lebih besar $a > $b adalah <b>" . checkBoolean($hasilLebihBesar) . "</b><br>";
 echo "Perbandingan dari lebih kecil sama dengan $a <= $b adalah <b>" . checkBoolean($hasilLebihKecilSama) . "</b><br>";
 echo "Perbandingan dari lebih besar sama dengan $a >= $b adalah <b>" . checkBoolean($hasilLebihBesarSama) . "</b><br>";
+
+$a = true;
+$b = false;
+
+$hasilAnd = $a && $b;
+$hasilOr = $a || $b;
+$hasilNotA = !$a;
+$hasilNotB = !$b;
+
+echo "<br>";
+echo "Operator Logika dari && (AND) $a && $b adalah <b>" . checkBoolean($hasilAnd) . "</b><br>";
+echo "Operator Logika dari || (OR) $a || $b adalah <b>" . checkBoolean($hasilOr) . "</b><br>";
+echo "Operator Logika dari !a (NOT) !$a adalah <b>" . checkBoolean($hasilNotA) . "</b><br>";
+echo "Operator Logika dari !b (NOT) !$b adalah <b>" . checkBoolean($hasilNotB) . "</b><br>";
 ?>
