@@ -93,4 +93,10 @@ if ($diskon  > 0)
 
 echo "Total Pembayaran : Rp $hargaBayar";
 
+$poin = 550;
+$hadiahTambahan = ($poin > 500) ? "YA" : "TIDAK";
+echo "<br><br>";
+echo "Total skor pemain adalah: $poin <br>";
+echo "Apakah pemain mendapatkan hadiah tambahan? <b>$hadiahTambahan</b>";
+
 ?>
