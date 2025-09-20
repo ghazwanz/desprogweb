@@ -79,4 +79,18 @@ foreach($nilaiFiltered as $nilai) {
 echo "<br>";
 echo "Total nilai yang digunakan adalah: $totalSkor <br>";
 
+$hargaProduk = 120000;
+$diskon = 0;
+
+if ($hargaProduk > 100000)
+    $diskon = 20;
+
+$hargaBayar = $hargaProduk - ($hargaProduk * ($diskon/100));
+echo "<br>";
+echo "Harga produk: Rp $hargaProduk <br>";
+if ($diskon  > 0)
+    echo "Selamat anda mendapat diskon sebesar $diskon% <br>";
+
+echo "Total Pembayaran : Rp $hargaBayar";
+
 ?>
