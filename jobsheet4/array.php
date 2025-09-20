@@ -23,5 +23,5 @@ foreach ($daftarkaryawan as $karyawan) {
     }
 }
 echo "<br>";
-echo "Daftar karyawan dengan pengalaman kerja lebih dari 5 tahun: " . implode(',',$karyawanPengalamanLimaTahun);
+echo "Daftar karyawan dengan pengalaman kerja lebih dari 5 tahun: " . implode(', ',$karyawanPengalamanLimaTahun);
 ?>
