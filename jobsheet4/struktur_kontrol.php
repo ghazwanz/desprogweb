@@ -56,4 +56,27 @@ foreach ($nilaiSiswa as $nilai) {
     echo "Nilai: $nilai (Lulus) <br>";
 }
 
+$nilaiSiswa = [85, 92, 78, 64, 90, 75, 88, 79, 70, 96];
+sort($nilaiSiswa);
+
+$nilaiFiltered = array_slice($nilaiSiswa, 2);
+$nilaiFiltered = array_slice($nilaiFiltered, 0, -2);
+
+$totalSkor = 0;
+$count = 0;
+echo "<br>";
+echo "Nilai yang digunakan: ";
+
+foreach($nilaiFiltered as $nilai) {
+    $totalSkor+=$nilai;
+    $count++;
+    if ($count == (count($nilaiFiltered))) {
+        echo "$nilai";
+        continue;
+    }
+    echo "$nilai, ";
+}
+echo "<br>";
+echo "Total nilai yang digunakan adalah: $totalSkor <br>";
+
 ?>
