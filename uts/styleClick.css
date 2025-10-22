@@ -224,7 +224,7 @@ a {
 .image-placeholder {
     width: 100%;
     aspect-ratio: 16/9;
-    background: url(/uts/img/sales_overviews_dashboards_1up.png);
+    background: url(./img/sales_overviews_dashboards_1up.png);
     background-position: center;
     background-size: cover;
     border-radius: 1rem;
@@ -267,6 +267,10 @@ a {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+}
+
+.features-widget:nth-child(even){
+    flex-direction: row-reverse;
 }
 
 .features-widget-content{

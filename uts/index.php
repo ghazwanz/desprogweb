@@ -1,3 +1,33 @@
+<?php
+// --- KONFIGURASI KONEKSI POSTGRESQL ---
+$host = 'localhost';
+$port = '5432';
+$dbname = 'clickup';
+$user = 'postgres';
+$pass = 'zqwea123__';
+
+// Membuat koneksi
+$conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$pass");
+if (!$conn) {
+    die('Koneksi gagal: ' . pg_last_error());
+}
+
+$sql = 'SELECT faq_title, faq_desc FROM "table_faq"
+ORDER BY id desc';
+
+$sqlFeature = 'SELECT feature_title, feature_desc, image_file_name FROM "table_feature"
+ORDER BY id desc';
+
+$result = pg_query($conn, $sql);
+
+$resultFeature = pg_query($conn, $sqlFeature);
+
+if (!$result || !$resultFeature) {
+    die('Query gagal: ' . pg_last_error($conn));
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,39 +107,20 @@
                         </p>
                     </div>
                     <div class="features-widget-wrap">
+                        <?php $i=1; ?>
+                        <?php while($row = pg_fetch_assoc($resultFeature)): ?>
                         <div class="features-widget">
-                            <img src="./img/features-img.jpg" alt="">
+                            <img src=<?= "./img/".htmlspecialchars($row["image_file_name"]); ?> alt="">
                             <div class="features-widget-content">
                                 <div class="badge">
                                     Feature
                                 </div>
-                                <h3>Boost your day with AI-driven productivity</h3>
-                                <p>Get work done faster with the only AI-powered assistant tailored to your role.</p>
+                                <h3><?= htmlspecialchars($row["feature_title"]); ?></h3>
+                                <p><?= htmlspecialchars($row["feature_desc"]); ?></p>
                                 <button class="secondary-button">Learn More</button>
                             </div>
                         </div>
-                        <div class="features-widget">
-                            <div class="features-widget-content">
-                                <div class="badge">
-                                    Feature
-                                </div>
-                                <h3>View any project as a Kanban board</h3>
-                                <p>Add a Board View to any list or project, so you can easily see progress and manage statuses with drag-and-drop simplicity.</p>
-                                <button class="secondary-button">Learn More</button>
-                            </div>
-                            <img src="./img/kanban.jpg" alt="">
-                        </div>
-                        <div class="features-widget">
-                            <img src="./img/schedule.jpg" alt="">
-                            <div class="features-widget-content">
-                                <div class="badge">
-                                    Feature
-                                </div>
-                                <h3>Track it all without losing a second.</h3>
-                                <p>See where your time is going—and how much you're saving—by tracking everything in ClickUp</p>
-                                <button class="secondary-button">Learn More</button>
-                            </div>
-                        </div>
+                        <?php $i++; endwhile; ?>
                     </div>
                 </div>
             </div>
@@ -124,52 +135,20 @@
                         <h2>Frequently Asked Questions</h2>
                     </div>
                     <div class="faq-accordion-wrap">
+                        <?php $i=1; ?>
+                        <?php while($row = pg_fetch_assoc($result)): ?>
                         <div class="faq-accordion">
                             <div class="faq-accordion-item">
                                 <div class="faq-accordion-title">
-                                    <h4>Why am I not seeing the right information on my Dashboard?</h4>
+                                    <h4><?= htmlspecialchars($row["faq_title"]); ?></h4>
                                     <p style="color: #02015a">+</p>
                                 </div>
                                 <div class="faq-accordion-content" id="accordion-item-1">
-                                    <p>If you aren't seeing the right information on your Dashboard perform a manual
-                                        refresh to ensure you have the latest information. Click the refresh button in
-                                        the upper-right to refresh your Dashboard immediately.</p>
+                                    <p><?= htmlspecialchars($row["faq_desc"]); ?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="faq-accordion">
-                            <div class="faq-accordion-item">
-                                <div class="faq-accordion-title">
-                                    <h4>Why am I seeing different data?</h4>
-                                    <p style="color: #02015a">+</p>
-                                </div>
-                                <div class="faq-accordion-content" id="accordion-item-1">
-                                    <p>Dashboard cards only display data from tasks you can view. If your permissions change or the locations shown on the Dashboard are updated, you may see different data reflected in the Dashboard cards.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="faq-accordion">
-                            <div class="faq-accordion-item">
-                                <div class="faq-accordion-title">
-                                    <h4>I updated some tasks, why aren't they updating on my Dashboard?</h4>
-                                    <p style="color: #02015a">+</p>
-                                </div>
-                                <div class="faq-accordion-content" id="accordion-item-1">
-                                    <p>You can perform a manual refresh to ensure you have the latest information. Click the refresh button in the upper-right to refresh your Dashboard immediately.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="faq-accordion">
-                            <div class="faq-accordion-item">
-                                <div class="faq-accordion-title">
-                                    <h4>How far back can I see data with my time-based cards?</h4>
-                                    <p style="color: #02015a">+</p>
-                                </div>
-                                <div class="faq-accordion-content" id="accordion-item-1">
-                                    <p>Time-based cards can display data from as early as August 2020.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php $i++; endwhile; ?>
                     </div>
                 </div>
             </div>
