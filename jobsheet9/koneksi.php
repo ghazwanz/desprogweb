@@ -18,4 +18,12 @@ $query = "CREATE TABLE user (
 
 mysqli_query($connect, $query);
 
+$id = 1;
+$username = 'admin';
+$password = md5('123');
+
+$query = "INSERT INTO user (id, username, password) 
+            VALUES ('$id', '$username', '$password')";
+
+mysqli_query($connect, $query);
 ?>
