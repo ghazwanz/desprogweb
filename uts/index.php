@@ -1,16 +1,7 @@
 <?php
 // --- KONFIGURASI KONEKSI POSTGRESQL ---
-$host = 'localhost';
-$port = '5432';
-$dbname = 'clickup';
-$user = 'postgres';
-$pass = 'zqwea123__';
 
-// Membuat koneksi
-$conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$pass");
-if (!$conn) {
-    die('Koneksi gagal: ' . pg_last_error());
-}
+include "koneksi.php";
 
 $sql = 'SELECT faq_title, faq_desc FROM "table_faq"
 ORDER BY id desc';
