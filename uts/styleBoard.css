@@ -161,7 +161,7 @@ body {
 /* Task Stats */
 .task-stats {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     margin-bottom: 2rem;
 }
@@ -204,6 +204,48 @@ body {
     background: #ddd;
 }
 
+.button-primary{
+    background: var(--accent-color);
+    color: var(--light-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s;
+    font-size: 1rem;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.button-primary:hover{
+    background: var(--primary-color);
+}
+
+.button-danger{
+    background: #f6220b;
+    color: var(--light-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s;
+    font-size: 1rem;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.button-danger:hover{
+    background: #e8210b;
+}
+
+.faq-form{
+    display: none;
+}
+
+.feature-form{
+    display: none;
+}
+
 .error-card h2 {
     font-size: 2rem;
     line-height: 1.2;
@@ -236,6 +278,7 @@ body {
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 50px;
 }
 
 .task-list-section h2 {
@@ -257,6 +300,23 @@ body {
     border-bottom: 2px solid #e0e0e0;
 }
 
+.form-label{
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+.form-group{
+    margin-bottom:20px ;
+}
+
+.form-input{
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    outline: none;
+}
+
 .task-list thead th {
     padding: 12px;
     text-align: left;
@@ -275,7 +335,8 @@ body {
 }
 
 .task-list tbody td {
-    padding: 14px 12px;
+    padding: 10px 12px;
+    height: max-content;
     color: var(--grey-color);
     font-size: 14px;
 }
@@ -304,7 +365,7 @@ body {
 .action-buttons {
     display: flex;
     gap: 12px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 .delete-row {
@@ -321,4 +382,38 @@ body {
 .delete-row:hover {
     background: #ff3838;
     box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+}
+
+/* alert */
+
+.alert {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    animation: slideDown 0.3s ease-out;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border: 2px solid #28a745;
+    color: #155724;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    border: 2px solid #dc3545;
+    color: #721c24;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

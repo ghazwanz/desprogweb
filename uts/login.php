@@ -16,7 +16,7 @@
                     <img src="img/logo-v3-clickup-light.svg" width="180" height="50" />
                 </div>
                 <h1>Welcome Back</h1>
-                <form id="login-form" method="post" action="dashboard.php">
+                <form id="login-form" method="post" action="proses-login.php">
                     <div class="form-group">
                         <label for="email">Email Address</label>
                         <input type="email" name="email" id="email" placeholder="Email Address">
@@ -77,13 +77,6 @@
                 if (pass === "") {
                     $("#password-error").text("Password harus diisi.");
                     valid = false;
-                }
-
-                if (pass !== "" && email !== "") {
-                    if (email !== "atmint123@gmail.com" && pass !== "admin123#") {
-                        $("#not-valid").text("Email atau Password anda salah!")
-                        valid = false;
-                    }
                 }
 
                 if (!valid) {
