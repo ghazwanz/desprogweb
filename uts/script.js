@@ -1,13 +1,33 @@
 $(document).ready(function (e) {
-    if(window.location.pathname.match("manage-faq")){
+    if (window.location.pathname.match("manage-faq")) {
         if (window.location.search.startsWith("?id")) {
             $(".faq-form").slideToggle(300);
+            setTimeout(function () {
+                // Cek apakah elemen #feature-form ada
+                var $featureForm = $('#faq-form');
+
+                if ($featureForm.length) {
+                    $('html, body').animate({
+                        scrollTop: $featureForm.offset().top
+                    }, 400);
+                }
+            }, 400);
         }
     }
-    
-    if(window.location.pathname.match("manage-feature")){
+
+    if (window.location.pathname.match("manage-feature")) {
         if (window.location.search.startsWith("?id")) {
             $(".feature-form").slideToggle(300);
+            setTimeout(function () {
+                // Cek apakah elemen #feature-form ada
+                var $featureForm = $('#feature-form');
+
+                if ($featureForm.length) {
+                    $('html, body').animate({
+                        scrollTop: $featureForm.offset().top
+                    }, 400);
+                }
+            }, 400);
         }
     }
 
@@ -24,6 +44,30 @@ $(document).ready(function (e) {
 
     $('#create-feature').on('click', function (e) {
         $(".feature-form").slideDown(300);
+        setTimeout(function () {
+            // Cek apakah elemen #feature-form ada
+            var $featureForm = $('#feature-form');
+
+            if ($featureForm.length) {
+                $('html, body').animate({
+                    scrollTop: $featureForm.offset().top
+                }, 400);
+            }
+        }, 400);
+    });
+
+    $('#create-feature').on('click', function (e) {
+        $(".feature-form").slideDown(300);
+        setTimeout(function () {
+            // Cek apakah elemen #feature-form ada
+            var $featureForm = $('#feature-form');
+
+            if ($featureForm.length) {
+                $('html, body').animate({
+                    scrollTop: $featureForm.offset().top
+                }, 400);
+            }
+        }, 400);
     });
 
     $('#cancel-faq').on('click', function (e) {

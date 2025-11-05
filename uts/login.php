@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION['status']) && $_SESSION['status'] == 'login') {
+    header("Location: dashboard.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +19,9 @@
         <div class="container">
             <div class="login-section">
                 <div class="logo">
-                    <img src="img/logo-v3-clickup-light.svg" width="180" height="50" />
+                    <a href="./">
+                        <img src="img/logo-v3-clickup-light.svg" width="180" height="50" />
+                    </a>
                 </div>
                 <h1>Welcome Back</h1>
                 <form id="login-form" method="post" action="proses-login.php">

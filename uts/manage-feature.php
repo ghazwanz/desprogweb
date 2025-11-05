@@ -211,7 +211,7 @@ $rowFeature = pg_fetch_all($resultFeature) ?: [];
                 <button class="button-primary" id="create-feature">Create New Feature</button>
             </div>
 
-            <div class="task-list-section feature-form">
+            <div class="task-list-section feature-form" id="feature-form">
                 <h2><?php echo isset($id) ? 'Edit Feature' : 'Create Feature'; ?></h2>
 
                 <form method="POST" action="<?php echo isset($id) ? './manage-feature.php?id=' . urlencode($id) : './manage-feature.php'; ?>" enctype="multipart/form-data">

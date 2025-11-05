@@ -48,8 +48,8 @@ body {
 
 .logo {
     margin-bottom: 1.5rem;
-    pointer-events: none;
-    user-select: none;
+    /* pointer-events: none;
+    user-select: none; */
     padding: 0 25px;
 }
 

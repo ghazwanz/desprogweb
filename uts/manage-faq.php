@@ -187,7 +187,7 @@ if (isset($_GET["error"])) {
             </div>
 
             <!-- FAQ Form Section -->
-            <div class="task-list-section faq-form">
+            <div class="task-list-section faq-form" id="faq-form">
                 <h2><?php echo isset($id) ? 'Edit FAQ' : 'Create FAQ'; ?></h2>
 
                 <form method="POST" action="<?php isset($id)? './manage-faq?'.$id :'./manage-faq' ?>">

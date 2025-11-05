@@ -61,9 +61,9 @@ body {
 }
 
 .logo {
-    margin-bottom: 1.5rem;
-    pointer-events: none;
-    user-select: none;
+    margin-bottom: 1.5rem;  
+    /* pointer-events: none;
+    user-select: none; */
 }
 
 h1 {
