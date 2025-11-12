@@ -40,13 +40,9 @@ $(document).ready(function (e) {
 
     $('#create-faq').on('click', function (e) {
         $(".faq-form").slideDown(300);
-    });
-
-    $('#create-feature').on('click', function (e) {
-        $(".feature-form").slideDown(300);
         setTimeout(function () {
             // Cek apakah elemen #feature-form ada
-            var $featureForm = $('#feature-form');
+            var $featureForm = $('#faq-form');
 
             if ($featureForm.length) {
                 $('html, body').animate({

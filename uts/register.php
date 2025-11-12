@@ -4,9 +4,13 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'login') {
     header("Location: dashboard.php");
 }
 
-$success_message = "";
-if (isset($_GET['registered']) && $_GET['registered'] == 'success') {
-    $success_message = "Registrasi berhasil! Silakan login dengan akun Anda.";
+$error_message = "";
+if (isset($_GET['error'])) {
+    if ($_GET['error'] == 'email_exists') {
+        $error_message = "Email sudah terdaftar. Silakan gunakan email lain.";
+    } elseif ($_GET['error'] == 'registration_failed') {
+        $error_message = "Registrasi gagal. Silakan coba lagi.";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -16,7 +20,7 @@ if (isset($_GET['registered']) && $_GET['registered'] == 'success') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Click Up Login</title>
+    <title>Click Up Register</title>
 </head>
 
 <body>
@@ -28,13 +32,14 @@ if (isset($_GET['registered']) && $_GET['registered'] == 'success') {
                         <img src="img/logo-v3-clickup-light.svg" width="180" height="50" />
                     </a>
                 </div>
-                <h1>Welcome Back</h1>
-                <?php if ($success_message): ?>
-                    <div class="success-message" style="background: #d4edda; color: #155724; padding: 12px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #c3e6cb;">
-                        <?php echo $success_message; ?>
+                <h1>Create Account</h1>
+                <?php if ($error_message): ?>
+                    <div class="error-message" style="background: #f8d7da; color: #721c24; padding: 12px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #f5c6cb;">
+                        <?php echo $error_message; ?>
                     </div>
                 <?php endif; ?>
-                <form id="login-form" method="post" action="proses-login.php">
+                <form id="register-form" method="post" action="proses-register.php">
+
                     <div class="form-group">
                         <label for="email">Email Address</label>
                         <input type="email" name="email" id="email" placeholder="Email Address">
@@ -45,14 +50,19 @@ if (isset($_GET['registered']) && $_GET['registered'] == 'success') {
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password" placeholder="Password">
                         <span id="password-error" style="color: red;"></span>
-                        <span id="not-valid" style="color: red;"></span>
                     </div>
 
-                    <input type="submit" class="login-btn" value="Log In"></input>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password">
+                        <span id="confirm-password-error" style="color: red;"></span>
+                    </div>
+
+                    <input type="submit" class="login-btn" value="Sign Up"></input>
                 </form>
 
                 <div class="signup-link">
-                    Don't have an account? <a href="register.php">Sign up</a>
+                    Already have an account? <a href="login.php">Log in</a>
                 </div>
             </div>
 
@@ -69,15 +79,23 @@ if (isset($_GET['registered']) && $_GET['registered'] == 'success') {
                 top: 0
             }, '300ms')
 
-            $("#login-form").submit((e) => {
+            $("#register-form").submit((e) => {
+                const username = $("#username").val()
                 const email = $("#email").val()
                 const pass = $("#password").val()
+                const confirmPass = $("#confirm-password").val()
 
+                $("#username-error").text("");
                 $("#email-error").text("");
                 $("#password-error").text("");
-                $("#not-valid").text("");
+                $("#confirm-password-error").text("");
 
                 let valid = true;
+
+                if (username === "") {
+                    $("#username-error").text("Username harus diisi.");
+                    valid = false;
+                }
 
                 if (email === "") {
                     $("#email-error").text("Email harus diisi.");
@@ -89,11 +107,17 @@ if (isset($_GET['registered']) && $_GET['registered'] == 'success') {
                     valid = false;
                 }
 
+                if (confirmPass === "") {
+                    $("#confirm-password-error").text("Konfirmasi password harus diisi.");
+                    valid = false;
+                } else if (pass !== confirmPass) {
+                    $("#confirm-password-error").text("Password tidak cocok.");
+                    valid = false;
+                }
+
                 if (!valid) {
                     e.preventDefault();
                 }
-
-
             })
         })
     </script>
